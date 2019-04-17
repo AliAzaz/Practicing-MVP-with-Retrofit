@@ -14,10 +14,10 @@ import retrofit2.Response;
 
 public class Core implements AppViews.onRetrofit {
 
-    private AppViews.onGetUsers getUsers;
+    private AppViews.onSetUsers onSetUsers;
 
-    public Core(AppViews.onGetUsers getUsers) {
-        this.getUsers = getUsers;
+    public Core(AppViews.onSetUsers onSetUsers) {
+        this.onSetUsers = onSetUsers;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class Core implements AppViews.onRetrofit {
                         String data = response.body().string();
                         JSONArray array = new JSONArray(data);
 
-                        getUsers.onSuccess(array);
+                        onSetUsers.onSuccess(array);
 
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -47,7 +47,7 @@ public class Core implements AppViews.onRetrofit {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                getUsers.onFail(t.toString());
+                onSetUsers.onFail(t.toString());
             }
         });
     }

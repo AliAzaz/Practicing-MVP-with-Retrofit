@@ -23,7 +23,7 @@ public interface AppViews {
         void getDataFromURL(Call<ResponseBody> call);
     }
 
-    interface onGetUsers {
+    interface onSetUsers {
         void onSuccess(JSONArray array);
 
         void onFail(String error);
