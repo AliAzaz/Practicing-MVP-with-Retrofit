@@ -1,13 +1,13 @@
 package com.gpslocator.aliazaz.practicingmvp.View;
 
-import android.content.Context;
-
 import com.gpslocator.aliazaz.practicingmvp.Contract.User;
-import com.gpslocator.aliazaz.practicingmvp.Recycler_MVP.Presenter.RecyclerPresenter;
 
 import org.json.JSONArray;
 
 import java.util.List;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
 
 public interface AppViews {
 
@@ -18,12 +18,14 @@ public interface AppViews {
     }
 
     interface onRetrofit {
-        void initiateRetrofitCall(Context mContext, String link);
+        void initiateRetrofitCall();
+
+        void getDataFromURL(Call<ResponseBody> call);
     }
 
     interface onGetUsers {
-        void getSuccess(JSONArray array);
+        void onSuccess(JSONArray array);
 
-        void getFail(String error);
+        void onFail(String error);
     }
 }
