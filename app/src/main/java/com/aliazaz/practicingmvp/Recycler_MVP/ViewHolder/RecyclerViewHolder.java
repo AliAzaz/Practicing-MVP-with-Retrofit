@@ -1,12 +1,12 @@
-package com.gpslocator.aliazaz.practicingmvp.Recycler_MVP.ViewHolder;
+package com.aliazaz.practicingmvp.Recycler_MVP.ViewHolder;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.gpslocator.aliazaz.practicingmvp.R;
-import com.gpslocator.aliazaz.practicingmvp.Recycler_MVP.View.RecyclerRowView;
+import com.aliazaz.practicingmvp.R;
+import com.aliazaz.practicingmvp.Recycler_MVP.View.RecyclerRowView;
 
 public class RecyclerViewHolder extends RecyclerView.ViewHolder implements RecyclerRowView {
 

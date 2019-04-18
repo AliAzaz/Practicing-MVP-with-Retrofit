@@ -1,4 +1,4 @@
-package com.gpslocator.aliazaz.practicingmvp.Recycler_MVP.View;
+package com.aliazaz.practicingmvp.Recycler_MVP.View;
 
 public interface RecyclerRowView {
     void setName(String name);

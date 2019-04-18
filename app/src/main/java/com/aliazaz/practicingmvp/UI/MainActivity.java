@@ -1,4 +1,4 @@
-package com.gpslocator.aliazaz.practicingmvp.UI;
+package com.aliazaz.practicingmvp.UI;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,14 +6,15 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.gpslocator.aliazaz.practicingmvp.Contract.User;
-import com.gpslocator.aliazaz.practicingmvp.R;
-import com.gpslocator.aliazaz.practicingmvp.Recycler_MVP.Presenter.RecyclerPresenter;
-import com.gpslocator.aliazaz.practicingmvp.View.AppViews;
+import com.aliazaz.practicingmvp.Contract.User;
+import com.aliazaz.practicingmvp.Presenter.DataPresenter;
+import com.aliazaz.practicingmvp.R;
+import com.aliazaz.practicingmvp.Recycler_MVP.Presenter.RecyclerPresenter;
+import com.aliazaz.practicingmvp.View.AppViews;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements AppViews.onGetListenerUsers {
+public class MainActivity extends AppCompatActivity implements AppViews.onGetListener {
 
     RecyclerView userRecycler;
 
@@ -29,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements AppViews.onGetLis
     private void initializing() {
         userRecycler = findViewById(R.id.userRecycler);
 
+        DataPresenter presenter = new DataPresenter(this);
+        presenter.setURLForSyncData("users");
+
     }
 
     private void setComponents() {
@@ -37,13 +41,13 @@ public class MainActivity extends AppCompatActivity implements AppViews.onGetLis
     }
 
     @Override
-    public void getSuccessListener(List<User> userList) {
-        RecyclerPresenter recyclerAdapter = new RecyclerPresenter(userList);
+    public void onSuccessListener(List<?> userList) {
+        RecyclerPresenter recyclerAdapter = new RecyclerPresenter((List<User>) userList);
         userRecycler.setAdapter(recyclerAdapter);
     }
 
     @Override
-    public void getFailListener(String error) {
+    public void onFailListener(String error) {
 
     }
 }

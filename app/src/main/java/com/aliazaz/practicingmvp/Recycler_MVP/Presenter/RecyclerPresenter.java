@@ -1,13 +1,13 @@
-package com.gpslocator.aliazaz.practicingmvp.Recycler_MVP.Presenter;
+package com.aliazaz.practicingmvp.Recycler_MVP.Presenter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.gpslocator.aliazaz.practicingmvp.Contract.User;
-import com.gpslocator.aliazaz.practicingmvp.R;
-import com.gpslocator.aliazaz.practicingmvp.Recycler_MVP.ViewHolder.RecyclerViewHolder;
+import com.aliazaz.practicingmvp.Contract.User;
+import com.aliazaz.practicingmvp.R;
+import com.aliazaz.practicingmvp.Recycler_MVP.ViewHolder.RecyclerViewHolder;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class RecyclerPresenter extends RecyclerView.Adapter<RecyclerViewHolder> 
     public void onBindViewHolder(@NonNull RecyclerViewHolder recyclerViewHolder, int position) {
         recyclerViewHolder.setName(usersList.get(position).getName());
         recyclerViewHolder.setEmail(usersList.get(position).getEmail());
-        recyclerViewHolder.setCity(usersList.get(position).getCity());
+        recyclerViewHolder.setCity(usersList.get(position).getAddress().getCity());
     }
 
     @Override

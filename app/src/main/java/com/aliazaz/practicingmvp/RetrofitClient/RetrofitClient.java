@@ -1,4 +1,4 @@
-package com.gpslocator.aliazaz.practicingmvp.RetrofitClient;
+package com.aliazaz.practicingmvp.RetrofitClient;
 
 import java.util.concurrent.TimeUnit;
 
@@ -11,14 +11,13 @@ public class RetrofitClient {
     private static API service;
     private static String baseURL = "https://jsonplaceholder.typicode.com/";
 
-    public static void createRetrofitInstance() {
+    public API createRetrofitInstance() {
 
         final OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(2, TimeUnit.MINUTES)
                 .writeTimeout(2, TimeUnit.MINUTES)
                 .readTimeout(2, TimeUnit.MINUTES)
                 .build();
-
 
         retrofit = new Retrofit
                 .Builder()
@@ -27,7 +26,6 @@ public class RetrofitClient {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        service = retrofit.create(API.class);
-
+        return retrofit.create(API.class);
     }
 }
